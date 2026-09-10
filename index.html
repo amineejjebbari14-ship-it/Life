@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CFAX — Creative studio for brands that want to stand out.">
+<title>CFAX — Make Your Brand Seen</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+
+:root{--bg:#f5f4ef;--ink:#111;--muted:#70706c;--card:#fff;--line:#deddd7;--accent:#c8f23a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+html[dir="rtl"] body{
+  font-family:"Tahoma","Arial",sans-serif;
+  letter-spacing:normal !important;
+  word-spacing:normal;
+}
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] p,
+html[dir="rtl"] a,
+html[dir="rtl"] .tag,
+html[dir="rtl"] .kicker,
+html[dir="rtl"] .service,
+html[dir="rtl"] .project-info,
+html[dir="rtl"] .hero-meta{
+  letter-spacing:normal !important;
+  word-spacing:normal;
+}
+html[dir="rtl"] h1,
+html[dir="rtl"] h2{
+  line-height:1.08;
+}
+html[dir="rtl"] em{
+  letter-spacing:normal !important;
+}
+html[dir="rtl"] .hero-grid,
+html[dir="rtl"] .section-top,
+html[dir="rtl"] .about,
+html[dir="rtl"] .service,
+html[dir="rtl"] .process,
+html[dir="rtl"] .footer-row,
+html[dir="rtl"] .copy{
+  direction:rtl;
+}
+html[dir="rtl"] .projects{
+  direction:rtl;
+}
+html[dir="rtl"] .lang-switch,
+html[dir="rtl"] .nav-actions{
+  direction:ltr;
+}
+
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,calc(100% - 40px));margin:auto}
+header{height:76px;display:flex;align-items:center;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(245,244,239,.92);backdrop-filter:blur(15px);z-index:10}
+.nav{display:flex;justify-content:space-between;align-items:center;width:100%}
+.logo{font-size:25px;font-weight:800;letter-spacing:-1.5px}.logo b{font-weight:800}
+nav ul{display:flex;gap:28px;list-style:none;font-size:13px;color:#555}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.lang-switch{display:flex;align-items:center;gap:2px;border:1px solid var(--line);padding:4px;border-radius:100px;background:#fff}
+.lang-switch button{border:0;background:transparent;color:#777;font:600 10px "DM Sans",Arial,sans-serif;padding:7px 9px;border-radius:100px;cursor:pointer}
+.lang-switch button.active{background:#111;color:#fff}
+.nav-btn{background:#111;color:#fff;padding:11px 17px;border-radius:100px;font-size:12px;font-weight:700}
+.hero{padding:90px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:50px;align-items:end}
+.tag{font-size:11px;text-transform:uppercase;letter-spacing:1.7px;color:#666;margin-bottom:22px}
+h1{font-size:clamp(62px,10vw,132px);line-height:.86;letter-spacing:-.075em;max-width:900px}
+h1 em{font-family:"Playfair Display",serif;font-weight:600;letter-spacing:-.04em}
+.hero-side{padding-bottom:7px}
+.hero-side p{font-size:16px;color:#666;max-width:340px}
+.actions{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #171717;border-radius:100px;padding:13px 18px;font-size:12px;font-weight:700}
+.btn.dark{background:#111;color:white}.btn.light{background:transparent}
+.hero-meta{display:flex;justify-content:space-between;margin-top:80px;padding-top:18px;border-top:1px solid var(--line);font-size:10px;text-transform:uppercase;letter-spacing:1.4px;color:#777}
+
+section{padding:105px 0}
+.section-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px}
+.kicker{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:#777;margin-bottom:9px}
+h2{font-size:clamp(42px,6vw,78px);line-height:.9;letter-spacing:-.065em}
+.section-top p{max-width:330px;color:#777;font-size:14px}
+
+.projects{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+.project{background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.project:nth-child(2){margin-top:85px}.project:nth-child(3){margin-top:-30px}.project:nth-child(4){margin-top:55px}
+.project-art{height:420px;position:relative;overflow:hidden}
+.project:nth-child(2) .project-art,.project:nth-child(3) .project-art,.project:nth-child(4) .project-art{height:350px}
+.art-one{background:linear-gradient(135deg,#d9d7cf,#88877f)}
+.art-two{background:linear-gradient(145deg,#1b1b1b,#555 55%,#111)}
+.art-three{background:linear-gradient(135deg,#d8e3bd,#9ca78b,#25291f)}
+.art-four{background:linear-gradient(135deg,#d6d0c6,#b6aaa0,#514a45)}
+.poster{position:absolute;inset:38px;display:flex;align-items:center;justify-content:center}
+.poster-title{font-size:clamp(50px,8vw,110px);font-weight:800;letter-spacing:-.09em}
+.art-two .poster-title{font-family:"Playfair Display",serif;font-style:italic;color:#eee;font-weight:600}
+.product{width:120px;height:230px;border-radius:25px;background:linear-gradient(90deg,#191919,#c4c4c4,#222);box-shadow:0 35px 45px rgba(0,0,0,.3);display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;letter-spacing:2px;font-size:12px}
+.product small{font-size:7px;margin-top:8px;color:#ccc}
+.browser{position:absolute;inset:45px 30px 30px;background:#f8f6ef;border-radius:12px;padding:45px 28px;color:#111;box-shadow:0 25px 55px rgba(0,0,0,.25)}
+.browser:before{content:"●  ●  ●";position:absolute;top:10px;left:15px;font-size:7px;color:#777}
+.browser h3{font-size:50px;letter-spacing:-5px}.browser p{width:60%;height:5px;background:#aaa;margin-top:20px}.browser span{display:inline-block;margin-top:25px;border:1px solid #111;padding:8px 12px;border-radius:50px;font-size:8px}
+.project-info{padding:20px 21px;display:flex;justify-content:space-between;gap:20px}
+.project-name{font-size:21px;font-weight:700}.project-type{font-size:11px;color:#777;margin-top:3px}.project-num{font-size:11px;color:#999}
+
+.statement{background:#111;color:#f6f5ef;padding:125px 0}
+.statement p{font-size:clamp(44px,7vw,91px);line-height:.95;letter-spacing:-.065em;max-width:1050px}
+.statement em{font-family:"Playfair Display",serif;color:#aaa}.statement strong{color:var(--accent)}
+
+.services{background:#fff}
+.service{display:grid;grid-template-columns:55px 1fr 1fr;gap:25px;padding:28px 0;border-bottom:1px solid var(--line);align-items:center}
+.service:first-of-type{border-top:1px solid var(--line)}
+.service-no{font-size:11px;color:#999}.service h3{font-size:30px;letter-spacing:-.04em}.service p{color:#777;font-size:13px;max-width:390px}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.about-visual{height:500px;border-radius:22px;background:#111;color:#f5f4ef;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.about-visual span{font-size:clamp(100px,15vw,190px);font-weight:800;letter-spacing:-.12em}
+.about-copy h2{margin-bottom:28px}.about-copy p{max-width:470px;color:#70706c;font-size:15px;margin-bottom:16px}
+.pill{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:11px;border:1px solid var(--line);padding:9px 12px;border-radius:100px}.pill i{width:6px;height:6px;background:#65b82f;border-radius:50%}
+
+.process{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step{padding:25px 20px 30px;border-right:1px solid var(--line)}.step:last-child{border:0}
+.step b{font-size:10px;color:#888}.step h3{margin:65px 0 10px;font-size:20px}.step p{font-size:12px;color:#777}
+
+.contact{background:#dfe6d1;text-align:center;padding:125px 0}
+.contact h2{font-size:clamp(55px,9vw,125px)}.contact h2 em{font-family:"Playfair Display",serif;font-weight:600}.contact p{color:#666;max-width:400px;margin:22px auto 28px;font-size:14px}
+
+footer{padding:30px 0 40px;background:#111;color:#eee}.footer-row{display:flex;justify-content:space-between}.footer-links{display:flex;gap:22px;font-size:12px;color:#aaa}.copy{margin-top:50px;font-size:10px;color:#666;display:flex;justify-content:space-between}
+
+@media(max-width:800px){
+ .container{width:calc(100% - 28px)} header{height:68px} nav ul,.nav-btn{display:none}
+ .hero{padding:65px 0 45px}.hero-grid{grid-template-columns:1fr;gap:35px}.hero-meta{margin-top:55px}
+ section{padding:75px 0}.section-top{display:block}.section-top p{margin-top:18px}
+ .projects{grid-template-columns:1fr}.project:nth-child(n){margin-top:0}.project-art,.project:nth-child(n) .project-art{height:350px}
+ .service{grid-template-columns:35px 1fr}.service p{grid-column:2}.service h3{font-size:25px}
+ .about{grid-template-columns:1fr;gap:35px}.about-visual{height:350px}
+ .process{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.step h3{margin-top:30px}
+ .contact{padding:90px 0}.footer-row{display:block}.footer-links{margin-top:20px;flex-wrap:wrap}.copy{display:block;line-height:2}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="#">CFAX</a>
+  <nav><ul><li><a href="#work" data-i18n="nav_work">Work</a></li><li><a href="#services" data-i18n="nav_services">Services</a></li><li><a href="#about" data-i18n="nav_about">About</a></li></ul></nav>
+  <div class="nav-actions">
+   <div class="lang-switch" aria-label="Language selector">
+    <button data-lang="ar">AR</button><button data-lang="fr">FR</button><button data-lang="en" class="active">EN</button>
+   </div>
+   <a class="nav-btn" href="#contact" data-i18n="nav_cta">LET'S TALK ↗</a>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container">
+  <div class="hero-grid">
+   <div><div class="tag" data-i18n="hero_tag">CFAX / Creative Studio / Morocco — Worldwide</div><h1 data-i18n-html="hero_title">MAKE YOUR<br>BRAND <em>seen.</em></h1></div>
+   <div class="hero-side">
+    <p data-i18n="hero_text">We create premium visuals, content and digital experiences that help ambitious brands look better, communicate clearly and get noticed.</p>
+    <div class="actions"><a class="btn dark" href="#work" data-i18n="hero_work">SEE OUR WORK ↓</a><a class="btn light" href="#contact" data-i18n="hero_project">START A PROJECT ↗</a></div>
+   </div>
+  </div>
+  <div class="hero-meta"><span data-i18n="hero_meta">Design · Motion · AI · Digital</span><span data-i18n="scroll">Scroll ↓</span></div>
+ </div>
+</section>
+
+<section id="work">
+ <div class="container">
+  <div class="section-top"><div><div class="kicker" data-i18n="work_kicker">01 / Selected work</div><h2 data-i18n-html="work_title">WORK THAT<br>FEELS <em>real.</em></h2></div><p data-i18n="work_text">Four visual directions showing the level of thinking and craft we bring to every project.</p></div>
+  <div class="projects">
+   <article class="project"><div class="project-art art-one"><div class="poster"><div class="poster-title">VELORA</div></div></div><div class="project-info"><div><div class="project-name">VELORA</div><div class="project-type" data-i18n="p1_type">Brand identity / Social campaign</div></div><div class="project-num">01</div></div></article>
+   <article class="project"><div class="project-art art-two"><div class="poster"><div class="poster-title">NOIRÉ</div></div></div><div class="project-info"><div><div class="project-name">NOIRÉ</div><div class="project-type" data-i18n="p2_type">Fashion campaign / Motion</div></div><div class="project-num">02</div></div></article>
+   <article class="project"><div class="project-art art-three"><div class="poster"><div class="product"><span>ATLAS</span><small>NO. 01</small></div></div></div><div class="project-info"><div><div class="project-name">ATLAS</div><div class="project-type" data-i18n="p3_type">AI product visuals / Ads</div></div><div class="project-num">03</div></div></article>
+   <article class="project"><div class="project-art art-four"><div class="browser"><h3>NØVA</h3><p></p><span>EXPLORE ↗</span></div></div><div class="project-info"><div><div class="project-name">NØVA</div><div class="project-type" data-i18n="p4_type">Landing page / Digital experience</div></div><div class="project-num">04</div></div></article>
+  </div>
+ </div>
+</section>
+
+<section class="statement"><div class="container"><p data-i18n-html="statement">Good design gets attention.<br><em>Great design</em> makes people <strong>care.</strong></p></div></section>
+
+<section id="services" class="services">
+ <div class="container">
+  <div class="section-top"><div><div class="kicker" data-i18n="services_kicker">02 / Services</div><h2 data-i18n-html="services_title">WHAT WE<br>DO.</h2></div><p data-i18n="services_text">One creative partner from the first idea to the final asset.</p></div>
+  <div class="service"><div class="service-no">01</div><h3 data-i18n="s1_title">CREATIVE DESIGN</h3><p data-i18n="s1_text">Brand identity, social content, campaign systems and art direction.</p></div>
+  <div class="service"><div class="service-no">02</div><h3 data-i18n="s2_title">SHORT-FORM VIDEO</h3><p data-i18n="s2_text">Reels, TikTok and advertising creatives built to stop the scroll.</p></div>
+  <div class="service"><div class="service-no">03</div><h3 data-i18n="s3_title">AI VISUALS</h3><p data-i18n="s3_text">Premium product scenes and campaign concepts created with modern AI workflows.</p></div>
+  <div class="service"><div class="service-no">04</div><h3 data-i18n="s4_title">WEB DESIGN</h3><p data-i18n="s4_text">Clean landing pages and websites that turn attention into action.</p></div>
+ </div>
+</section>
+
+<section id="about"><div class="container"><div class="about">
+ <div class="about-visual"><span>CFAX</span></div>
+ <div class="about-copy"><div class="kicker" data-i18n="about_kicker">03 / About</div><h2 data-i18n-html="about_title">SMALL<br>STUDIO.<br><em>BIG</em> THINKING.</h2><p data-i18n="about_p1">CFAX is an independent creative studio built around a simple idea: your brand deserves more than generic content.</p><p data-i18n="about_p2">We mix human creative direction with design, motion and AI to make work that feels intentional, premium and useful for business.</p><div class="pill"><i></i> <span data-i18n="availability">Available for selected projects</span></div></div>
+</div></div></section>
+
+<section><div class="container"><div class="section-top"><div><div class="kicker" data-i18n="process_kicker">04 / Process</div><h2 data-i18n-html="process_title">SIMPLE.<br>SHARP.</h2></div><p data-i18n="process_text">No complicated process. Just clear communication and focused creative work.</p></div>
+ <div class="process">
+  <div class="step"><b>01 / DISCOVER</b><h3 data-i18n="step1_title">Understand</h3><p data-i18n="step1_text">Your brand, audience and goal.</p></div>
+  <div class="step"><b>02 / DIRECT</b><h3 data-i18n="step2_title">Define</h3><p data-i18n="step2_text">The visual route and creative idea.</p></div>
+  <div class="step"><b>03 / CREATE</b><h3 data-i18n="step3_title">Build</h3><p data-i18n="step3_text">The design, content and digital assets.</p></div>
+  <div class="step"><b>04 / DELIVER</b><h3 data-i18n="step4_title">Launch</h3><p data-i18n="step4_text">Polished files ready for the real world.</p></div>
+ </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="container"><div class="kicker" data-i18n="contact_kicker">05 / Start a project</div><h2 data-i18n-html="contact_title">LET'S MAKE<br>YOU <em>noticed.</em></h2><p data-i18n="contact_text">Have a brand, product or idea that deserves better visuals? Tell us about it.</p><a class="btn dark" href="mailto:hello@cfax.studio" data-i18n="contact_btn">START A PROJECT ↗</a></div></section>
+</main>
+
+<footer><div class="container"><div class="footer-row"><div class="logo">CFAX</div><div class="footer-links"><a href="#work" data-i18n="nav_work">Work</a><a href="#services" data-i18n="nav_services">Services</a><a href="#about" data-i18n="nav_about">About</a><a href="mailto:hello@cfax.studio" data-i18n="email">Email</a></div></div><div class="copy"><span data-i18n="copyright">© 2026 CFAX Studio</span><span data-i18n="location">Morocco · Worldwide</span></div></div></footer>
+
+<script>
+const translations = {
+  en: {
+    nav_work:"Work", nav_services:"Services", nav_about:"About", nav_cta:"LET'S TALK ↗",
+    hero_tag:"CFAX / Creative Studio / Morocco — Worldwide",
+    hero_title:"MAKE YOUR<br>BRAND <em>seen.</em>",
+    hero_text:"We create premium visuals, content and digital experiences that help ambitious brands look better, communicate clearly and get noticed.",
+    hero_work:"SEE OUR WORK ↓", hero_project:"START A PROJECT ↗", hero_meta:"Design · Motion · AI · Digital", scroll:"Scroll ↓",
+    work_kicker:"01 / Selected work", work_title:"WORK THAT<br>FEELS <em>real.</em>",
+    work_text:"Four visual directions showing the level of thinking and craft we bring to every project.",
+    p1_type:"Brand identity / Social campaign", p2_type:"Fashion campaign / Motion", p3_type:"AI product visuals / Ads", p4_type:"Landing page / Digital experience",
+    statement:"Good design gets attention.<br><em>Great design</em> makes people <strong>care.</strong>",
+    services_kicker:"02 / Services", services_title:"WHAT WE<br>DO.", services_text:"One creative partner from the first idea to the final asset.",
+    s1_title:"CREATIVE DESIGN", s1_text:"Brand identity, social content, campaign systems and art direction.",
+    s2_title:"SHORT-FORM VIDEO", s2_text:"Reels, TikTok and advertising creatives built to stop the scroll.",
+    s3_title:"AI VISUALS", s3_text:"Premium product scenes and campaign concepts created with modern AI workflows.",
+    s4_title:"WEB DESIGN", s4_text:"Clean landing pages and websites that turn attention into action.",
+    about_kicker:"03 / About", about_title:"SMALL<br>STUDIO.<br><em>BIG</em> THINKING.",
+    about_p1:"CFAX is an independent creative studio built around a simple idea: your brand deserves more than generic content.",
+    about_p2:"We mix human creative direction with design, motion and AI to make work that feels intentional, premium and useful for business.",
+    availability:"Available for selected projects",
+    process_kicker:"04 / Process", process_title:"SIMPLE.<br>SHARP.", process_text:"No complicated process. Just clear communication and focused creative work.",
+    step1_title:"Understand", step1_text:"Your brand, audience and goal.", step2_title:"Define", step2_text:"The visual route and creative idea.",
+    step3_title:"Build", step3_text:"The design, content and digital assets.", step4_title:"Launch", step4_text:"Polished files ready for the real world.",
+    contact_kicker:"05 / Start a project", contact_title:"LET'S MAKE<br>YOU <em>noticed.</em>",
+    contact_text:"Have a brand, product or idea that deserves better visuals? Tell us about it.", contact_btn:"START A PROJECT ↗",
+    email:"Email", copyright:"© 2026 CFAX Studio", location:"Morocco · Worldwide"
+  },
+  fr: {
+    nav_work:"Projets", nav_services:"Services", nav_about:"À propos", nav_cta:"PARLONS-EN ↗",
+    hero_tag:"CFAX / Studio créatif / Maroc — International",
+    hero_title:"RENDEZ VOTRE<br>MARQUE <em>visible.</em>",
+    hero_text:"Nous créons des visuels premium, du contenu et des expériences digitales qui aident les marques ambitieuses à mieux se présenter, communiquer clairement et se faire remarquer.",
+    hero_work:"VOIR NOS PROJETS ↓", hero_project:"DÉMARRER UN PROJET ↗", hero_meta:"Design · Motion · IA · Digital", scroll:"Défiler ↓",
+    work_kicker:"01 / Projets sélectionnés", work_title:"DES PROJETS<br>QUI <em>MARQUENT.</em>",
+    work_text:"Quatre directions visuelles qui montrent notre niveau de réflexion et de réalisation.",
+    p1_type:"Identité de marque / Campagne sociale", p2_type:"Campagne mode / Motion", p3_type:"Visuels produit IA / Publicité", p4_type:"Landing page / Expérience digitale",
+    statement:"Le bon design attire l’attention.<br><em>Le grand design</em> donne envie de <strong>rester.</strong>",
+    services_kicker:"02 / Services", services_title:"CE QUE<br>NOUS FAISONS.", services_text:"Un seul partenaire créatif, de la première idée au livrable final.",
+    s1_title:"DESIGN CRÉATIF", s1_text:"Identité de marque, contenu social, campagnes et direction artistique.",
+    s2_title:"VIDÉO COURTE", s2_text:"Reels, TikTok et créations publicitaires conçues pour arrêter le scroll.",
+    s3_title:"VISUELS IA", s3_text:"Scènes produit premium et concepts de campagne créés avec des workflows IA modernes.",
+    s4_title:"WEB DESIGN", s4_text:"Landing pages et sites propres qui transforment l’attention en action.",
+    about_kicker:"03 / À propos", about_title:"PETIT<br>STUDIO.<br><em>GRANDES</em> IDÉES.",
+    about_p1:"CFAX est un studio créatif indépendant construit autour d’une idée simple : votre marque mérite mieux que du contenu générique.",
+    about_p2:"Nous combinons direction créative humaine, design, motion et IA pour créer un travail intentionnel, premium et utile au business.",
+    availability:"Disponible pour certains projets",
+    process_kicker:"04 / Processus", process_title:"SIMPLE.<br>PRÉCIS.", process_text:"Pas de processus compliqué. Une communication claire et un travail créatif ciblé.",
+    step1_title:"Comprendre", step1_text:"Votre marque, votre audience et votre objectif.", step2_title:"Définir", step2_text:"La direction visuelle et l’idée créative.",
+    step3_title:"Créer", step3_text:"Le design, le contenu et les éléments digitaux.", step4_title:"Livrer", step4_text:"Des fichiers finalisés, prêts à être utilisés.",
+    contact_kicker:"05 / Démarrer un projet", contact_title:"FAISONS<br>VOUS <em>REMARQUER.</em>",
+    contact_text:"Vous avez une marque, un produit ou une idée qui mérite de meilleurs visuels ? Parlons-en.", contact_btn:"DÉMARRER UN PROJET ↗",
+    email:"Email", copyright:"© 2026 CFAX Studio", location:"Maroc · International"
+  },
+  ar: {
+    nav_work:"الأعمال", nav_services:"الخدمات", nav_about:"من نحن", nav_cta:"لنتحدث ↗",
+    hero_tag:"CFAX / استوديو إبداعي / المغرب — عالمي",
+    hero_title:"خَلّي<br>البراند ديالك <em>يبان.</em>",
+    hero_text:"كنصايبو تصاميم راقية، محتوى وتجارب رقمية كيساعدو البراندات الطموحة يبانوا بشكل احترافي، يوصلو الرسالة ديالهم ويشدّو الانتباه.",
+    hero_work:"شوف الأعمال ديالنا ↓", hero_project:"بدا مشروع ↗", hero_meta:"Design · Motion · AI · Digital", scroll:"هبط ↓",
+    work_kicker:"01 / أعمال مختارة", work_title:"أعمال<br><em>كتبان.</em>",
+    work_text:"أربع توجهات بصرية كيبينو طريقة التفكير والتنفيذ اللي كنجيبو لكل مشروع.",
+    p1_type:"هوية بصرية / حملة سوشيال", p2_type:"حملة أزياء / موشن", p3_type:"صور منتجات بالـAI / إعلانات", p4_type:"Landing Page / تجربة رقمية",
+    statement:"التصميم الزوين كيشد الانتباه.<br><em>التصميم القوي</em> كيخلي الناس <strong>يهتمّو.</strong>",
+    services_kicker:"02 / الخدمات", services_title:"شنو<br>كنقدمو.", services_text:"شريك إبداعي واحد من أول فكرة حتى للتسليم النهائي.",
+    s1_title:"DESIGN إبداعي", s1_text:"هوية بصرية، محتوى للسوشيال، حملات وإخراج فني.",
+    s2_title:"فيديوهات قصيرة", s2_text:"Reels وTikTok وإعلانات مصممة باش توقف الـscroll.",
+    s3_title:"VISUALS بالـAI", s3_text:"مشاهد منتجات راقية وأفكار حملات باستعمال أحدث تقنيات الذكاء الاصطناعي.",
+    s4_title:"WEB DESIGN", s4_text:"Landing pages ومواقع نظيفة كتحول الانتباه إلى نتائج.",
+    about_kicker:"03 / علينا", about_title:"ستوديو<br>صغير.<br><em>تفكير</em> كبير.",
+    about_p1:"CFAX ستوديو إبداعي مستقل مبني على فكرة بسيطة: البراند ديالك كيستاهل أكثر من محتوى عادي ومكرر.",
+    about_p2:"كنجمعو بين التوجيه الإبداعي، التصميم، الموشن والـAI باش نصايبو خدمة راقية، مقصودة ومفيدة للبيزنس.",
+    availability:"متاحين لمشاريع مختارة",
+    process_kicker:"04 / الطريقة", process_title:"بسيطة.<br>ودقيقة.", process_text:"ما كاينش تعقيد. تواصل واضح وخدمة إبداعية مركزة.",
+    step1_title:"نفهمو", step1_text:"البراند ديالك، الجمهور والهدف.", step2_title:"نحددو", step2_text:"التوجه البصري والفكرة الإبداعية.",
+    step3_title:"نصايبو", step3_text:"التصميم، المحتوى والمواد الرقمية.", step4_title:"نسلمو", step4_text:"ملفات واجدة للاستعمال فالعالم الحقيقي.",
+    contact_kicker:"05 / بدا مشروع", contact_title:"خليونا<br>نخليوك <em>تبان.</em>",
+    contact_text:"عندك براند، منتوج ولا فكرة كتستاهل visuals أحسن؟ سولنا عليها.", contact_btn:"بدا مشروع ↗",
+    email:"الإيميل", copyright:"© 2026 CFAX Studio", location:"المغرب · عالمي"
+  }
+};
+
+function setLanguage(lang){
+  const t = translations[lang] || translations.en;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(t[key]!==undefined) el.textContent=t[key];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el=>{
+    const key=el.dataset.i18nHtml;
+    if(t[key]!==undefined) el.innerHTML=t[key];
+  });
+  document.querySelectorAll("[data-lang]").forEach(btn=>{
+    btn.classList.toggle("active", btn.dataset.lang===lang);
+  });
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==="ar" ? "rtl" : "ltr";
+  document.body.style.textAlign = lang==="ar" ? "right" : "left";
+  document.querySelectorAll("nav ul").forEach(n=>n.style.direction=lang==="ar" ? "rtl" : "ltr");
+  localStorage.setItem("cfax-language",lang);
+}
+document.querySelectorAll("[data-lang]").forEach(btn=>{
+  btn.addEventListener("click",()=>setLanguage(btn.dataset.lang));
+});
+setLanguage(localStorage.getItem("cfax-language") || "en");
+</script>
+
+</body>
+</html>
